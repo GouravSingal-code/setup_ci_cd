@@ -1,13 +1,13 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello, CI/CD Pipeline!');
+app.get("/", (req, res) => {
+    res.send("Hello, CI/CD Pipeline!");
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
-module.exports = app;
+module.exports = { app, server }; // Export the server
